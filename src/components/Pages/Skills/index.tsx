@@ -29,12 +29,10 @@ import {
   SiAdobeillustrator,
   SiTypescript,
   SiDocker,
-  SiRedux
+  SiRedux,
 } from "react-icons/si";
 import { AiFillHtml5 } from "react-icons/ai";
-import {
-  FloatInWrapper,
-} from "@/components/Navbar/Navbar.style";
+import { FloatInWrapper } from "@/components/Navbar/Navbar.style";
 
 const frontendTech = [
   {
@@ -136,19 +134,17 @@ const othersTech = [
   },
 ];
 
-
 const SkillsPage: React.FC<{}> = () => {
   const { colorMode } = useColorMode();
 
-
   type TSkills = {
-    title: string,
-    id?: number | string,
-    gradColor1?: string,
-    gradColor2?: string,
-    techKnown?: any,
-    mt?: number | string,
-  }
+    title: string;
+    id?: number | string;
+    gradColor1?: string;
+    gradColor2?: string;
+    techKnown?: any;
+    mt?: number | string;
+  };
 
   let StackCard: React.FC<TSkills> = ({
     title,
@@ -199,7 +195,7 @@ const SkillsPage: React.FC<{}> = () => {
               minWidth={"130px"}
               maxWidth={"160px"}
               height={"40px"}
-              background={'#2d2f33'}
+              background={"#2d2f33"}
               display={"flex"}
               flexDir={"row"}
               alignItems={"center"}
@@ -213,7 +209,7 @@ const SkillsPage: React.FC<{}> = () => {
                 aria-label="Search database"
                 icon={item.iconButton}
                 background={"transparent"}
-                size={'sm'}
+                size={"sm"}
               />
             </Box>
           ))}
@@ -225,10 +221,10 @@ const SkillsPage: React.FC<{}> = () => {
   return (
     <>
       <Box>
-      <FloatInWrapper>
-        <Heading textAlign={"center"} mt={5} mb={10}>
-          My Skills 🗃️
-        </Heading>
+        <FloatInWrapper>
+          <Heading textAlign={"center"} mt={5} mb={10}>
+            My Skills 🗃️
+          </Heading>
         </FloatInWrapper>
         <Grid
           templateColumns={[
@@ -263,8 +259,6 @@ const SkillsPage: React.FC<{}> = () => {
             />
           </FloatInWrapper>
 
-          
-
           <FloatInWrapper>
             <StackCard
               title={"CI/CD"}
@@ -282,10 +276,17 @@ const SkillsPage: React.FC<{}> = () => {
               gradColor2={"#f84848"}
             />
           </FloatInWrapper>
-
-          
         </Grid>
-        <Box mt={5} mb={20} padding={10} textAlign={"center"} lineHeight={2}>
+        <Box
+          mt={5}
+          mb={20}
+          padding={10}
+          textAlign={"center"}
+          lineHeight={2}
+          display={"flex"}
+          flexDir={"column"}
+          alignItems={"center"}
+        >
           <Heading fontSize={[18, 18, 22, 24]}>
             I am also familiar with -
           </Heading>
@@ -296,6 +297,6 @@ const SkillsPage: React.FC<{}> = () => {
       </Box>
     </>
   );
-}
+};
 
 export default SkillsPage;

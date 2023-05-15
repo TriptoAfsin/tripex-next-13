@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Image, Heading } from "@chakra-ui/react";
+import { Box, Image, Heading } from "@/components/ChakraComponents/Client";
 
 function NotFoundPage() {
   return (
@@ -8,10 +8,10 @@ function NotFoundPage() {
         <Image
             src={'/404.svg'}
             alt="Afshin Nahian Tripto"
-            width={['80vw','80vw', '400px', '450px']}
+            width={['90vw','90vw', '400px', '450px']}
             height={"auto"}
           />
-            <Heading textAlign={'center'} fontSize={40}>Not Found</Heading>
+            <Heading textAlign={'center'} fontSize={50} mt={10}>Not Found</Heading>
         </Box>
     </>
   )

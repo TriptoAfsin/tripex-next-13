@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box } from "@chakra-ui/react";
+import { Box } from "@/components/ChakraComponents/Client";
 import { motion } from "framer-motion";
 // import useWindowDimensions from "../../utils/hooks/ResizeHandler";
 import HeroSection from "./HomeComponents/HeroSection";
@@ -16,7 +16,7 @@ function FrontPage() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Box>
+      <Box minH={'30vh'}>
         {/* <Particles
           style={{
             position: "fixed",

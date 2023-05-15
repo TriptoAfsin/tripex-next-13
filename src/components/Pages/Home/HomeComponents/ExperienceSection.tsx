@@ -9,6 +9,7 @@ import {
   Grid,
   Button,
 } from "@chakra-ui/react";
+import dayjs from "dayjs";
 
 function ExperienceSection() {
   const { colorMode } = useColorMode();
@@ -17,8 +18,10 @@ function ExperienceSection() {
     {
       id: 1,
       title: "Delivery Hobe",
-      logo: '/dh.png',
+      logo: "/dh.png",
       time: "(2021 - ?)",
+      start: "2021-1-10",
+      end: Date?.now(),
       designation: "JavaScript Developer",
       body: `I've been working as a junior js developer at "Delivery Hobe" since October, 2021. It's a hyper local e-commerce platform focused on 1hr deliveries within Dhaka city`,
       link: "https://www.deliveryhobe.com/",
@@ -29,9 +32,11 @@ function ExperienceSection() {
     {
       id: 2,
       title: "BUTEX NoteBOT",
-      logo: '/bot.png',
+      logo: "/bot.png",
       time: "(2018 - ?)",
       designation: "Founder",
+      start: "2018-1-9",
+      end: Date?.now(),
       body: `I've founded BUTEX NoteBOT in 2018, it's a 24x7 educational content delivery chatbot.Through this time it has served thousands of students with their studies`,
       link: "https://github.com/TriptoAfsin/notebot-engine-v1",
       gradColor1: "#23a455",
@@ -41,8 +46,10 @@ function ExperienceSection() {
     {
       id: 3,
       title: "Bondi Pathshsala",
-      logo: '/bp.png',
+      logo: "/bp.png",
       time: "(2020 - 2021)",
+      start: "2020-1-1",
+      end: "2021-1-1",
       designation: "Web Developer",
       body: `I was responsible for maintaining the whole web platform of Bondi Pathshsala since 2020 - 2021, It has helped more than 2 million students with their studies so far`,
       link: "https://www.bondipathshala.com.bd/",
@@ -53,17 +60,19 @@ function ExperienceSection() {
   ];
 
   type TExpCard = {
-    title: string,
-    id?: number | string,
-    designation: string,
-    logo: string,
-    body: string,
-    link: string,
-    time: string,
-    gradColor1: string,
-    gradColor2: string,
-    tags: string[],
-  }
+    title: string;
+    id?: number | string;
+    designation: string;
+    logo: string;
+    body: string;
+    link: string;
+    time: string;
+    start: string;
+    end: string | number;
+    gradColor1: string;
+    gradColor2: string;
+    tags: string[];
+  };
 
   let ExpCard: React.FC<TExpCard> = ({
     title,
@@ -73,6 +82,8 @@ function ExperienceSection() {
     body,
     link,
     time,
+    start,
+    end,
     gradColor1 = "#4575f8",
     gradColor2 = "#275cf1",
     tags = [],
@@ -105,21 +116,36 @@ function ExperienceSection() {
         >
           {designation}
         </Text>
-        <Text
-          color={colorMode === "dark" ? "#fafafb" : "#fafafb"}
-          background={"black"}
-          paddingX={2}
-          mt={1}
-        >
-          {time}
-        </Text>
+        <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>
+          <Text
+            color={colorMode === "dark" ? "#fafafb" : "#fafafb"}
+            background={"black"}
+            paddingX={2}
+            mt={1}
+          >
+            {time}
+          </Text>
+          <Text
+            color={colorMode === "dark" ? "#fafafb" : "#fafafb"}
+            background={"black"}
+            paddingX={2}
+            mt={1}
+            ml={2}
+          >
+            {dayjs(end)?.diff(start, "M") >= 12
+              ? dayjs(end)?.diff(start, "year") > 1
+                ? `${dayjs(end)?.diff(start, "year")} Years`
+                : `${dayjs(end)?.diff(start, "year")} Year`
+              : `${dayjs(end)?.diff(start, "M")} Months`}
+          </Text>
+        </Box>
         <Box
           display={"flex"}
           flexDir={"row"}
           justifyContent={"center"}
           alignItems={"center"}
-          justifyItems={'center'}
-          justifySelf={'center'}
+          justifyItems={"center"}
+          justifySelf={"center"}
         >
           <Grid
             templateColumns={[
@@ -137,7 +163,7 @@ function ExperienceSection() {
           >
             {tags?.map(item => (
               <Text
-                fontWeight={'semibold'}
+                fontWeight={"semibold"}
                 key={item}
                 paddingTop={1}
                 paddingBottom={1}
@@ -209,6 +235,8 @@ function ExperienceSection() {
             body={item.body}
             link={item.link}
             time={item.time}
+            start={item.start}
+            end={item.end}
             gradColor1={item.gradColor1}
             gradColor2={item.gradColor2}
             tags={item?.tags}

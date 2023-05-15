@@ -18,7 +18,7 @@ const mailUrl = portfolioInfo.socialLinks.socialMail;
 
 function Footer({ grad1Color = "#339af0", grad2Color = "#4949f3" }) {
 
-  const gradient = `linear(to-l, ${grad1Color}, ${grad2Color})`;
+  // const gradient = `linear(to-l, ${grad1Color}, ${grad2Color})`;
   return (
     <>
       <Box display={'flex'} flexDir={'column'} bg={'#339af0'} padding={20}>
@@ -26,7 +26,8 @@ function Footer({ grad1Color = "#339af0", grad2Color = "#4949f3" }) {
         templateColumns={[
           "repeat(1, 1fr)",
           "repeat(1, 1fr)",
-          "repeat(2, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
           "repeat(3, 1fr)",
         ]}
         gap={[5, 5, 10, 50]}

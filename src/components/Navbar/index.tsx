@@ -4,7 +4,7 @@ import { Box, Text, Stack, Image, Flex } from "@chakra-ui/react";
 import { MdClose } from "react-icons/md";
 import { BiMenuAltLeft } from "react-icons/bi";
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 import { FloatLeftWrapper, FloatRightWrapper } from "./Navbar.style";
 // import DarkModeButton from "../DarkModeButton";
@@ -144,19 +144,19 @@ function Navbar(props: any) {
     <>
       <NavBarContainer
         {...props}
-        as={motion.div}
-        initial={{
-          y: -100,
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            ease: "easeOut",
-            duration: 0.3,
-          },
-        }}
+        // as={motion.div}
+        // initial={{
+        //   y: -100,
+        //   opacity: 0,
+        // }}
+        // animate={{
+        //   opacity: 1,
+        //   y: 0,
+        //   transition: {
+        //     ease: "easeOut",
+        //     duration: 0.3,
+        //   },
+        // }}
         key={isOpen}
       >
         <Logo />

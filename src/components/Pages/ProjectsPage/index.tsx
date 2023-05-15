@@ -16,6 +16,7 @@ import {
 
 import { AiOutlineLink } from "react-icons/ai";
 import { useFetchProjects } from "@/hooks/queryHooks/useFetchProjects";
+import CustomSpinner from "@/components/CustomSpinner";
 // //config import
 // import portfolioInfo from "../../../config";
 
@@ -55,10 +56,21 @@ function ProjectPage() {
             borderRadius={10}
             display={["block", "block", "block", "block"]}
           />
-          <Text mt={2} fontWeight={"semibold"} padding={2} ml={2} color={colorMode === "dark" ? "#fafafb" : "#fafafb"}>
+          <Text
+            mt={2}
+            fontWeight={"semibold"}
+            padding={2}
+            ml={2}
+            color={colorMode === "dark" ? "#fafafb" : "#fafafb"}
+          >
             {title}
           </Text>
-          <Text padding={2} ml={2} height={"100px"} color={colorMode === "dark" ? "#fafafb" : "#fafafb"}>
+          <Text
+            padding={2}
+            ml={2}
+            height={"100px"}
+            color={colorMode === "dark" ? "#fafafb" : "#fafafb"}
+          >
             {body}
           </Text>
           <Box display={"flex"} flexDir={"row"} justifyContent={"space-around"}>
@@ -101,7 +113,7 @@ function ProjectPage() {
               borderRadius={"50%"}
               boxShadow={"0px 10px 15px -3px rgba(0,0,0,0.1)"}
               minWidth={"50px"}
-              height={["50px", "50px", "45px", "45px"]}
+              height={["50px", "50px", "50px", "50px"]}
               icon={<AiOutlineLink size="24" color={"#FFFFFF"} />}
               mt={3}
               mr={3}
@@ -121,29 +133,30 @@ function ProjectPage() {
       flexDir={"column"}
       justifyContent={"center"}
       alignItems={"center"}
+      minH={"60vh"}
     >
-      <Heading
-        textAlign={"center"}
-        color={colorMode === "dark" ? "#fafafb" : "#18181a"}
-      >
-        Projects
-      </Heading>
-      <Grid
-        templateColumns={[
-          "repeat(1, 1fr)",
-          "repeat(2, 1fr)",
-          "repeat(2, 1fr)",
-          "repeat(4, 1fr)",
-        ]}
-        gap={6}
-        mt={10}
-        mr={[0, 0, 5, 5]}
-      >
-        {isLoading || !data ? (
-          <LoaderSpinner1 />
-        ) : (
-            <>
-            {data?.data.map((item:any) => (
+      {isLoading || !data ? (
+        <CustomSpinner />
+      ) : (
+        <>
+          <Heading
+            textAlign={"center"}
+            color={colorMode === "dark" ? "#fafafb" : "#18181a"}
+          >
+            Projects
+          </Heading>
+          <Grid
+            templateColumns={[
+              "repeat(1, 1fr)",
+              "repeat(2, 1fr)",
+              "repeat(2, 1fr)",
+              "repeat(4, 1fr)",
+            ]}
+            gap={6}
+            mt={10}
+            mr={[0, 0, 5, 5]}
+          >
+            {data?.data.map((item: any) => (
               <CardComponent
                 id={item.id}
                 key={item.id}
@@ -154,9 +167,9 @@ function ProjectPage() {
                 link={item.link}
               />
             ))}
-          </>
-        )}
-      </Grid>
+          </Grid>
+        </>
+      )}
     </Box>
   );
 }

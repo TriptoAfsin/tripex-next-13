@@ -104,7 +104,7 @@ function ProjectSection() {
               borderRadius={"50%"}
               boxShadow={"0px 10px 15px -3px rgba(0,0,0,0.1)"}
               minWidth={"50px"}
-              height={["50px", "50px", "45px", "45px"]}
+              height={["50px", "50px", "50px", "50px"]}
               icon={<AiOutlineLink size="24" color={"#FFFFFF"} />}
               mt={3}
               mr={3}
