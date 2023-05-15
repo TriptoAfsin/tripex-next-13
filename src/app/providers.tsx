@@ -5,8 +5,8 @@ import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import NextNProgress from "nextjs-progressbar";
-import { store } from "@/store";
-import { Provider } from "react-redux";
+// import { store } from "@/store";
+// import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
@@ -35,12 +35,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <CacheProvider>
       <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
+        <>
           <ChakraProvider theme={theme}>
             <NextNProgress color="#2d2f33" />
             {children}
           </ChakraProvider>
-        </Provider>
+        </>
       </QueryClientProvider>
     </CacheProvider>
   );
