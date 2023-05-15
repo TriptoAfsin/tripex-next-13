@@ -199,7 +199,7 @@ const SkillsPage: React.FC<{}> = () => {
               minWidth={"130px"}
               maxWidth={"160px"}
               height={"40px"}
-              background={"black"}
+              background={'#2d2f33'}
               display={"flex"}
               flexDir={"row"}
               alignItems={"center"}
