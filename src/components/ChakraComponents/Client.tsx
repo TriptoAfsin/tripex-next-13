@@ -1,0 +1,38 @@
+"use client";
+import {
+  Box,
+  Text,
+  Heading,
+  Grid,
+  useColorMode,
+  Image,
+  IconButton,
+  UnorderedList,
+  ListItem,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from "@chakra-ui/react";
+
+export {
+  Box,
+  Text,
+  Heading,
+  Grid,
+  useColorMode,
+  IconButton,
+  Image,
+  UnorderedList,
+  ListItem,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+};
